@@ -1,23 +1,41 @@
 #include <stdio.h>
 
-int main() {
+int main(){
 
-    int num ; 
-    printf("Enter any number : ");
-    scanf("%d",&num);
+    char operator ;
+    float num1 , num2 , result ;
+    printf("Enter operator (+,-,*,/):");
+    scanf("%c", &operator);
+    printf("enter any 2 numbers:");
+    scanf("%f%f", &num1 , &num2);
+    switch (operator) {
+            case '+' :
+            result = num1 + num2 ;
+            printf("%.2f + %.2f = %.2f\n", num1 , num2 , result);
+            break;
 
-    int count=0 ;
-    while(num != 0 ){
+            case '-' :
+            result = num1 - num2 ;
+            printf("%.2f - %.2f = %.2f\n", num1 , num2 , result);
+            break;
 
-     num= num/10 ;
-     count++ ;
-     
+            case '*' :
+            result = num1 * num2 ;
+            printf("%.2f * %.2f = %.2f\n", num1 , num2 , result);
+            break;
+
+            case '/':
+            if (num2 != 0) {
+                result = num1 / num2;
+                printf("%.2f / %.2f = %.2f\n", num1, num2, result);
+            } else {
+                printf("Error: Division by zero is not possible\n");
+            }
+            break;
+
+        default:
+            printf("Invalid operator\n");
     }
-    
-   printf("The total digits is %d " , count ) ;
 
-   return 0 ;
-   
-} 
-
-    
+    return 0;
+}
