@@ -3,8 +3,8 @@
 int main() {
     
  int num ; 
-printf("Enter any number : ");
-scanf(" %d" , &num );
+    printf("Enter any number : ");
+    scanf(" %d" , &num );
 
     int rev = 0 ;
     int digit ;

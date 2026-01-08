@@ -1,16 +1,16 @@
 #include <stdio.h>
 
-int main(){ 
+int main() {
+    char ch;
 
-    for(int i = 1 ; i <=10 ; i++ ){
+    printf("Enter a letter: ");
+    scanf(" %c", &ch);
 
-if ( i == 5){
-    break;
-}
-    
-    else {
-        printf("%d ", i );
-    }
-}
-return 0 ;
+    if (ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||
+        ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U')
+        printf("Vowel");
+    else
+        printf("Consonant");
+
+    return 0;
 }

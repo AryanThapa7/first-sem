@@ -1,40 +1,20 @@
 #include <stdio.h>
 
-int main(){
+int main() {
+    int num, i, count;
 
-    char operator ;
-    float num1 , num2 , result ;
-    printf("Enter operator (+,-,*,/):");
-    scanf("%c", &operator);
-    printf("enter any 2 numbers:");
-    scanf("%f%f", &num1 , &num2);
-    switch (operator) {
-            case '+' :
-            result = num1 + num2 ;
-            printf("%.2f + %.2f = %.2f\n", num1 , num2 , result);
-            break;
+    for (num = 2; num <= 100; num++) {
+        count = 0;
 
-            case '-' :
-            result = num1 - num2 ;
-            printf("%.2f - %.2f = %.2f\n", num1 , num2 , result);
-            break;
-
-            case '*' :
-            result = num1 * num2 ;
-            printf("%.2f * %.2f = %.2f\n", num1 , num2 , result);
-            break;
-
-            case '/':
-            if (num2 != 0) {
-                result = num1 / num2;
-                printf("%.2f / %.2f = %.2f\n", num1, num2, result);
-            } else {
-                printf("Error: Division by zero is not possible\n");
+        for (i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                count++;
             }
-            break;
+        }
 
-        default:
-            printf("Invalid operator\n");
+        if (count == 2) {
+            printf("%d ", num);
+        }
     }
 
     return 0;

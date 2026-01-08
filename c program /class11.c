@@ -1,21 +1,17 @@
 #include <stdio.h>
 
 int main() {
-    int i, j, k;
-    int rows = 5;
+    int base, power, i;
+    int result = 1;
 
-    for (i = 1; i <= rows; i++) {
+    printf("Enter base and power: ");
+    scanf("%d %d", &base, &power);
 
-        for (j = 1; j <= rows - i; j++) {
-            printf(" ");
-        }
-
-        for (k = 1; k <= (2 * i - 1); k++) {
-            printf("*");
-        }
-
-        printf("\n");
+    for (i = 1; i <= power; i++) {
+        result = result * base;
     }
+
+    printf("Result = %d\n", result);
 
     return 0;
 }

@@ -1,24 +1,14 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int term = 1;     // first term
-    int sum = 0;
+    int i, j;
 
-    printf("Enter number of terms: ");
-    scanf("%d", &n);
-
-  
-        for (i = 1; i <= n; i++) {
-            sum = sum + term;     // add current term to sum
-            term = term + i;     // find next term
-                    
+    for (i = 4; i >= 1; i--) {
+        for (j = 1; j <= i; j++) {
+            printf("* ");
         }
-
-        printf("Sum of the series is: %d\n", sum);
-    
+        printf("\n");
+    }
 
     return 0;
 }
-
-

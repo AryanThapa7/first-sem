@@ -1,19 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int a = 0, b = 1, c;
+    char op;
+    float a, b;
 
-    printf("Enter number of terms: ");
-    scanf("%d", &n);
+    printf("Enter operator (+ - * /): ");
+    scanf(" %c", &op);
 
-    for (i = 0; i <= n; i++) {
-        printf("%d \n", a);
-        c = a + b;
-        a = b;
-        b = c;
+    printf("Enter two numbers: ");
+    scanf("%f %f", &a, &b);
+
+    switch (op) {
+        case '+': printf("Result = %.2f", a + b); break;
+        case '-': printf("Result = %.2f", a - b); break;
+        case '*': printf("Result = %.2f", a * b); break;
+        case '/': printf("Result = %.2f", a / b); break;
+        default: printf("Invalid operator");
     }
 
     return 0;
 }
-

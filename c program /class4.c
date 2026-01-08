@@ -1,25 +1,21 @@
 #include <stdio.h>
 
 int main() {
-    int num ;
-    int i = 1;
-    int fact =1 ;
+    int num, sum = 0, count = 0, digit;
+    float avg;
 
-    printf("Enter a number : ");
+    printf("Enter a number: ");
     scanf("%d", &num);
 
-   if (num >= 0) {
-        while (i <= num) {
-            fact = fact * i;
-            i++;
-        }
-        printf("Factorial of %d is %d\n", num, fact);
-        } 
+    while (num != 0) {
+        digit = num % 10;
+        sum = sum + digit;
+        count++;
+        num = num / 10;
+    }
 
-        
-        else {
-        printf("Invalid input! Please enter a  positive number.\n");
-        }
+    avg = (float)sum / count;
+    printf("Average = %.2f", avg);
 
     return 0;
 }

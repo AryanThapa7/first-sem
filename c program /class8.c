@@ -1,13 +1,19 @@
 #include <stdio.h>
 
 int main() {
-    int i, j;
+    int a, b, max;
 
-    for (i = 1; i <= 3; i++) {                       // outer loop → 1, 2, 3
-        for (j = 1; j <= 3; j++) {                   // inner loop → ×1, ×2, ×3
-            printf("%d * %d = %d\n", i, j, i * j);
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+
+    max = (a > b) ? a : b;
+
+    while (1) {
+        if (max % a == 0 && max % b == 0) {
+            printf("LCM = %d", max);
+            break;
         }
-        printf("\n");  
+        max++;
     }
 
     return 0;

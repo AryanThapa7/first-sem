@@ -1,24 +1,23 @@
 #include <stdio.h>
-#include <math.h>
 
 int main() {
+    int num, temp, digit, sum = 0;
 
-    int num ;
-    printf(" Enter any number :"); 
+    printf("Enter a number: ");
     scanf("%d", &num);
 
-    int sum = 0 ;
-    while (num!=0){
-     
-    sum = sum + num % 10 ; 
-    num = num / 10 ;
+    temp = num;
+
+    while (temp != 0) {
+        digit = temp % 10;
+        sum = sum + (digit * digit * digit);
+        temp = temp / 10;
     }
 
-    printf(" The sum of the given number is : % d " , sum );
+    if (sum == num)
+        printf("Armstrong Number");
+    else
+        printf("Not an Armstrong Number");
 
-    return 0 ;
-
-
-
-   
+    return 0;
 }
