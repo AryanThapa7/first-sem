@@ -1,27 +1,31 @@
 #include <stdio.h>
 
-int main(){
-    int  n ;
-    int even= 0 , odd= 0;
+int main() {
+    int n;
+    int max, min;
 
-    printf("Enter the number of elements");
+    printf("Enter number of elements: ");
     scanf("%d", &n);
 
     int arr[n];
     printf("Enter the elements:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
 
-    for(int i=0; i<n ; i++){
-         scanf("%d", &arr[i]);
-    
-         if(arr[i]%2==0)
-         even++;
+    max = arr[0];
+    min = arr[0];
 
-         else 
-         odd++;
-}
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max)
+            max = arr[i];
 
-    printf("Even numbers count = %d\n", even);
-    printf("Odd numbers count = %d\n", odd); 
+        if (arr[i] < min)
+            min = arr[i];
+    }
+
+    printf("Maximum number = %d\n", max);
+    printf("Minimum number = %d\n", min);
 
     return 0;
 }
