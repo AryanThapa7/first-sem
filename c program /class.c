@@ -1,26 +1,23 @@
 #include <stdio.h>
+#define ROW 2 
+#define COL 2
 
-int main()
-{
-    int n, i = 0;
-
-    printf("Enter a number: ");
-    scanf("%d", &n);
-
-    int arr[n];
-    while (n > 0)
-    {
-        arr[i] = n % 2;   
-        n = n / 2;     
-        i++;
+int main(){
+    int arr [ROW][COL];
+    for(int i = 0; i<ROW;i++){
+        printf("Enter the element to add in row\n");
+        for(int j=0 ; j<COL ; j++){
+        scanf(" %d", &arr[i][j]);
+        }
+    }
+    printf("the matrix is : \n");
+    for(int i = 0; i<ROW;i++){ 
+        for(int j=0 ; j<COL ; j++){
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
     }
 
-    printf("Binary number is: ");
-
-    for (i = i - 1; i >= 0; i--)
-    {
-        printf("%d", arr[i]);
-    }
-
-    return 0;
+    return 0 ;
 }
+
