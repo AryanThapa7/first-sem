@@ -1,16 +1,13 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(){
-        char str[20], ch = 'y';
-        int i = 0 ;
-        printf("Enter your name : ");
-        while(ch!='\n'){
-            ch=getchar();
-            str[i]=ch ;
-            i++;
+        char str[]="aryan";
+        int count = 0 ;
+        for(int i = 0 ; str[i]!='\0' ; i++){
+            count++ ; 
         }
-        str[i]='\0';
-        printf("Your name is : %s ", str);
+        printf("The number of letters : %d\n" ,count);
         return 0 ;
 
 }
