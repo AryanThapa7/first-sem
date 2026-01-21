@@ -1,23 +1,40 @@
 #include <stdio.h>
-#define ROW 2 
-#define COL 2
 
-int main(){
-    int arr [ROW][COL];
-    for(int i = 0; i<ROW;i++){
-        printf("Enter the element to add in row\n");
-        for(int j=0 ; j<COL ; j++){
-        scanf(" %d", &arr[i][j]);
+int main() {
+    int a[2][2], b[2][2], mul[2][2];
+    int i, j, k;
+
+    printf("Enter elements of first matrix:\n");
+    for(i = 0; i < 2; i++) {
+        for(j = 0; j < 2; j++) {
+            scanf("%d", &a[i][j]);
         }
     }
-    printf("the matrix is : \n");
-    for(int i = 0; i<ROW;i++){ 
-        for(int j=0 ; j<COL ; j++){
-            printf("%d ", arr[i][j]);
+    printf("Enter elements of second matrix:\n");
+    for(i = 0; i < 2; i++) {
+        for(j = 0; j < 2; j++) {
+            scanf("%d", &b[i][j]);
+        }
+    }
+    for(i = 0; i < 2; i++) {
+        for(j = 0; j < 2; j++) {
+            mul[i][j] = 0;
+        }
+    }
+    for(i = 0; i < 2; i++) {
+        for(j = 0; j < 2; j++) {
+            for(k = 0; k < 2; k++) {
+                mul[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+    printf("Multiplication of matrices:\n");
+    for(i = 0; i < 2; i++) {
+        for(j = 0; j < 2; j++) {
+            printf("%d ", mul[i][j]);
         }
         printf("\n");
     }
 
-    return 0 ;
+    return 0;
 }
-
