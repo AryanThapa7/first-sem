@@ -1,60 +1,26 @@
-#include <stdio.h>
-
-// function declarations
-void sum();
-void sub(int a, int b);
-int mul();
-float div(float a, float b );
-
-// global variables
-int num1 ;
-int num2;
+#include <stdio.h> 
+#include <time.h>
 
 int main(){
-    printf("Enter any 2 numbers : "); // asking for 2 numbers
-    scanf("%d%d",&num1 , &num2); // storing the variables into num1 and num2 
+        int n = 100000;
+        int i ;
 
-    // calling functions
-    sum();
-    sub( num1, num2 );
-    mul();
-    div( num1,  num2 );
+        clock_t start , end ;
+        double cpu_time_used;
 
-    return 0 ;
-}
+        start = clock(); 
 
+        for(i=0; i < n ; i++){
 
-void sum(){
-    int c = num1 + num2;
-    printf("The sum of %d and %d is %d\n" , num1 , num2 , c );
-   
+                int x = i*i ;
+        }  
 
-}
-void sub(int a, int b){
-    printf("The sub of %d and %d is %d\n",a,b,(a-b));
-}
+        end = clock();
 
-int mul(){
-    int a , b , c ;
-    c=a*b;
-    printf("The multiplication of %d and %d is %d\n", a , b , c);
-    return c ;
-}
+        cpu_time_used = ((double)(end - start))/CLOCKS_PER_SEC;
 
-float div(float a, float b ){
-if(num2 > 0){
-printf("%.2f divided by %.2f is %.2f\n", a , b , a/b);
-}
-else{
-    printf("Error");
+        printf("Time taken for n=%d is %f seconds\n", n , cpu_time_used);
+
+        return 0 ;
 
 }
-return 0 ;
-}
-
-
-
-
-
-
-
