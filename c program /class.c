@@ -1,40 +1,16 @@
 #include <stdio.h>
+void swapx(int*,int*);
+int main(){
+    int a = 10 , b = 20 ;
+    swapx(&a,&b);
+    printf("inside the caller:\na=%d b = %d\n", a , b);
+    return 0 ;
 
-int main() {
-    int a[2][2], b[2][2], mul[2][2];
-    int i, j, k;
-
-    printf("Enter elements of first matrix:\n");
-    for(i = 0; i < 2; i++) {
-        for(j = 0; j < 2; j++) {
-            scanf("%d", &a[i][j]);
-        }
-    }
-    printf("Enter elements of second matrix:\n");
-    for(i = 0; i < 2; i++) {
-        for(j = 0; j < 2; j++) {
-            scanf("%d", &b[i][j]);
-        }
-    }
-    for(i = 0; i < 2; i++) {
-        for(j = 0; j < 2; j++) {
-            mul[i][j] = 0;
-        }
-    }
-    for(i = 0; i < 2; i++) {
-        for(j = 0; j < 2; j++) {
-            for(k = 0; k < 2; k++) {
-                mul[i][j] += a[i][k] * b[k][j];
-            }
-        }
-    }
-    printf("Multiplication of matrices:\n");
-    for(i = 0; i < 2; i++) {
-        for(j = 0; j < 2; j++) {
-            printf("%d ", mul[i][j]);
-        }
-        printf("\n");
-    }
-
-    return 0;
+}
+void swapx(int* x ,int* y){
+    int t;
+    t= *x;
+    *x = *y;
+    *y =t;
+    printf("inside the function:\nx = %d b = %d\n", *x, *y);
 }
