@@ -1,26 +1,31 @@
 #include <stdio.h>
-#include <time.h>
-
-void calculateTime(int n) {
-        int i;
-        clock_t start, end;
-        double cpu_time_used;
-
-        start = clock();
-
-     for(i = 0; i < n; i++) {
-        int x = i * i;
+#define NOT_FOUND -1
+int binary_search(int *array, int size, int target);
+int main(void) {
+    int array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int size = 10, target = 9;
+    int result = binary_search(array, size, target);
+    if (result == NOT_FOUND) {
+        printf("Not found\n");
+    } else {
+        printf("Found at index %d\n", result);
     }
-
-        end = clock();
-
-        cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
-
-        printf("Time taken for n=%d is %f seconds\n", n, cpu_time_used);
+    return 0;
 }
 
-    int main() {
-    int n = 100000;
-    calculateTime(n);    
-    return 0;
+int binary_search(int *array, int size, int target) {
+    int high, low, mid;
+    high = size - 1;
+    low = 0;
+    while (low <= high) {
+        mid = low + (high - low) / 2;
+        if (array[mid] == target) {
+            return mid;
+        } else if (array[mid] > target) {
+            high = mid - 1;
+        } else {
+            low = mid + 1;
+        }
+    }
+    return NOT_FOUND;
 }
