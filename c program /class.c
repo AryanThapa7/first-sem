@@ -3,14 +3,17 @@
 // pointer and array in c 
 
 int main() {
-    int arr[5] = {1, 2, 3, 4, 5};
+    int arr[5];
     int *ptr = arr; // pointer to the first element of the array
 
-    printf("Array elements using pointer:\n");
+   
     for (int i = 0; i < 5; i++) {
-        printf("%d ", *(ptr + i)); // accessing array elements using pointer arithmetic
+        printf("enter element %d: ", i + 1);
+        scanf("%d", (ptr + i)); // accessing array elements using pointer arithmetic
     }
-    printf("\n");
+    for(int i = 0; i < 5; i++) {
+        printf("element %d: %d\n", i + 1, *(ptr + i)); // accessing array elements using pointer arithmetic
+    }
 
     return 0;
 }
