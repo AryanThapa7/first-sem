@@ -1,16 +1,16 @@
 #include <stdio.h>
 
+// pointer and array in c 
+
 int main() {
-    int num = 10;        // Normal integer variable
-    int *ptr;            // Pointer variable (stores address)
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr; // pointer to the first element of the array
 
-    ptr = &num;          // Store address of num in ptr
-
-    printf("Value of num: %d\n", num);
-    printf("Address of num: %p\n", &num);
-
-    printf("Value stored in ptr (address of num): %p\n", ptr);
-    printf("Value pointed by ptr: %d\n", *ptr);
+    printf("Array elements using pointer:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", *(ptr + i)); // accessing array elements using pointer arithmetic
+    }
+    printf("\n");
 
     return 0;
 }
