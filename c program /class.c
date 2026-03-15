@@ -1,37 +1,50 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*  Dynamic memory allocation 
+/* realloc()
+it is used for resizing a previously allocated memory block. It takes two arguments: a pointer to the previously allocated memory block and the new size in bytes. If the new size is larger than the old size, realloc() will allocate additional memory and copy the existing data to the new location. If the new size is smaller, it will truncate the existing data. If realloc() fails to allocate the requested memory, it returns NULL and leaves the original memory block unchanged.
+syntax : void* realloc(void* ptr, size_t new_size); where size_t is an unsigned integer type used to represent the size of objects in bytes. The ptr parameter is a pointer to the memory block that was previously allocated with malloc(), calloc(), or realloc(). If ptr is NULL, realloc() behaves like malloc() and allocates a new block of memory. If new_size is zero and ptr is not NULL, realloc() behaves like free() and deallocates the memory block pointed to by ptr.
 
-malloc() allocates a block of memory of the specified size and returns a pointer to the beginning of the block.
- syntax : 
-    void* malloc(size_t size);
-        ptr = (castType*) malloc(sizeInBytes);
-        eg : 
-        int *ptr 
-        ptr = (int*) malloc(10 * sizeof(int)); 
-        this allocates memory for 10 integers and returns a pointer to the first integer in the block. The size of each integer is determined by sizeof(int).
-        returns null if the memory allocation fails
-
- */
-int main(){ 
-    int *arr , size ;
-    printf("Enter the size of array : ");
-    scanf("%d",&size);
-
-    arr = (int*) malloc(size * sizeof(int)); // this allocates memory for 'size' integers and returns a pointer to the first integer in the block.
-    if ( arr == NULL){ // check if malloc failed to allocate memory
+*/ 
+int main (){
+    int *array = (int*)malloc(5 * sizeof(int)); // Allocate memory for 5 integers
+    if (array == NULL) {
         printf("Memory allocation failed\n");
-    }
-    for ( int i = 0; i < size; i++){
-        printf("Enter element %d : ",i+1);
-        scanf("%d",&arr[i]);
-    }
-    printf("The elements in the array are : ");
-    for ( int i = 0; i < size; i++){
-        printf("%d ",arr[i]);
-
+        return 1; // Exit if memory allocation fails
 }
-    free(arr); // deallocate the memory allocated by malloc
+    // Initialize the array
+    for (int i = 0; i < 5; i++) {
+        array[i] = i + 1; // Fill the array with values 1 to 5
+    }
+
+    // Print the original array
+    printf("Original array: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+
+    // Resize the array to hold 10 integers
+    int *new_array = (int*)realloc(array, 10 * sizeof(int));
+    if (new_array == NULL) {
+        printf("Memory reallocation failed\n");
+        free(array); // Free the original array if reallocation fails
+        return 1; // Exit if memory reallocation fails
+    }
+    array = new_array; // Update the pointer to the new memory block
+
+    // Initialize the new elements of the array
+    for (int i = 5; i < 10; i++) {
+        array[i] = i + 1; // Fill the new part of the array with values 6 to 10
+    }
+
+    // Print the resized array
+    printf("Resized array: ");
+    for (int i = 0; i < 10; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+
+    free(array); // Free the allocated memory
     return 0;
 }
