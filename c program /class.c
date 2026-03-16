@@ -13,13 +13,13 @@ fpl = fopen("file.txt", "r"); // opens the file in read mode
 fpl = fopen("file.txt", "w"); // opens the file in write mode
 fpl = fopen("file.txt", "a"); // opens the file in append mode
 
-*/ 
-// example : 
+*/
+
 
 int main() {
     FILE *ptr ;
-    char name[20]=" aryan thapa ";
-    ptr = fopen("hello.txt", "w"); // opens the file in write mode
+    char name[20]="\nanish thapa";
+    ptr = fopen("hello.txt", "w"); // opens the file in append mode
     if(ptr == NULL) {
         printf("Error opening file");
         return 1;
@@ -33,4 +33,20 @@ int main() {
     return 0;
     
 }
-    
+
+
+// int main(){ 
+//     FILE *ptr ;
+//     char name[20]="jeet thapa";
+//     ptr = fopen("hello.txt", "r"); // opens the file in read mode
+//     if(ptr == NULL) {
+//         printf("Error opening file");
+//         return 1;   
+// }
+// while(!feof(ptr)) { // checks if the end of file is reached
+//     char ch = fgetc(ptr); // reads a character from the file
+//     printf("%c", ch); // prints the character
+// }
+// fclose(ptr); // closes the file
+// return 0;
+// }
