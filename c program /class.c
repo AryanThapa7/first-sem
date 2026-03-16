@@ -1,15 +1,36 @@
-/* 
-file handling in C
-- file handling in C is done using the standard library functions provided in the <stdio.h> header file.
-- the main functions used for file handling in C are:
-1. fopen(): used to open a file and returns a pointer to the file.
-2. fclose(): used to close a file.
-3. fprintf(): used to write formatted data to a file.
-4. fscanf(): used to read formatted data from a file.
-5. fgetc(): used to read a single character from a file.
-6. fputc(): used to write a single character to a file.
-7. fgets(): used to read a string from a file.
-8. fputs(): used to write a string to a file.
-9. feof(): used to check if the end of a file has been reached.
-10. ferror(): used to check for errors in file handling.
-*/
+#include <stdio.h> 
+#include <stdlib.h>
+/* file handling in c : 
+buffer is used to store the data temporarily before writing it to the file or reading it from the file.
+buffer is used to improve the performance of file handling operations by reducing the number of disk accesses.
+# opening a file :
+FILE *fopen(const char *filename, const char *mode);
+filename : name of the file to be opened
+mode : mode in which the file is to be opened (e.g. "r" for reading, "w" for writing, "a" for appending, etc.)
+returns a pointer to a FILE object that can be used to access the file, or NULL if the file cannot be
+example : *fpl ;
+fpl = fopen("file.txt", "r"); // opens the file in read mode 
+fpl = fopen("file.txt", "w"); // opens the file in write mode
+fpl = fopen("file.txt", "a"); // opens the file in append mode
+
+*/ 
+// example : 
+
+int main() {
+    FILE *ptr ;
+    char name[20]=" aryan thapa ";
+    ptr = fopen("hello.txt", "w"); // opens the file in write mode
+    if(ptr == NULL) {
+        printf("Error opening file");
+        return 1;
+    }
+    int i = 0 ;
+    while(name[i] != '\0'){ 
+        fputc(name[i], ptr);
+        i++;
+    }
+    fclose(ptr); // closes the file
+    return 0;
+    
+}
+    
